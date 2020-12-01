@@ -6,7 +6,6 @@ def convert(s: str, numRows: int) -> str:
     canvas = ['']*numRows
     rowCurr = 0
     direction = -1
-    ans = ""
 
     for letter in s:
         canvas[rowCurr] = canvas[rowCurr]+letter
@@ -17,4 +16,6 @@ def convert(s: str, numRows: int) -> str:
     for i in canvas:
         ans = ans + i
 
-    return ans
+    return "".join([i for i in canvas])
+
+
