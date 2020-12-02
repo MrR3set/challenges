@@ -3,19 +3,17 @@
 def convert(s: str, numRows: int) -> str:
     if numRows == 1:
         return s
-    canvas = ['']*numRows
+
+    rowsDict = dict.fromkeys(range(0,numRows))
+
     rowCurr = 0
     direction = -1
 
     for letter in s:
-        canvas[rowCurr] = canvas[rowCurr]+letter
+        rowsDict[rowCurr] = rowsDict[rowCurr]+letter if rowsDict[rowCurr] is not None else ''
         if rowCurr >= numRows-1 or rowCurr == 0:
             direction=direction*-1
         rowCurr += direction
 
-    for i in canvas:
-        ans = ans + i
 
-    return "".join([i for i in canvas])
-
-
+    return "".join([v for k,v in rowsDict.items()])
